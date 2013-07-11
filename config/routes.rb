@@ -1,4 +1,8 @@
 Quizapp::Application.routes.draw do
+  resources :quizzes
+
+  resources :questions, :only => [:new, :create, :show]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

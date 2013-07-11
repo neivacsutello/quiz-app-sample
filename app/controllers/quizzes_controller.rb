@@ -1,6 +1,4 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: [:show, :edit, :update, :destroy]
-
   # GET /quizzes
   # GET /quizzes.json
   def index
@@ -10,6 +8,7 @@ class QuizzesController < ApplicationController
   # GET /quizzes/1
   # GET /quizzes/1.json
   def show
+    @quiz = Quiz.find(params[:id])
   end
 
   # GET /quizzes/new
@@ -61,14 +60,4 @@ class QuizzesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_quiz
-      @quiz = Quiz.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def quiz_params
-      params.require(:quiz).permit(:name)
-    end
 end

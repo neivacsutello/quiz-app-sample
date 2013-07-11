@@ -1,0 +1,7 @@
+<h1><%= @question.content %></h1>
+
+<ol>
+  <% @question.choices.each do |choice| %>
+    <li><%= choice.content %> <%= "- correct " if @question.correct_choice?(choice) %></li>
+  <% end %>
+</ol>
