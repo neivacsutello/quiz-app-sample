@@ -9,11 +9,11 @@
   <strong>Questions:</strong>
   <ul>
   <% @quiz.questions.each do |question| %>
-    <li><%= link_to question.content, question %></li>
+    <li><%= link_to question.content, quiz_question_path(@quiz, question) %></li>
   <% end %>
   </ul>
 </p>
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
 <%= link_to 'Back', quizzes_path %> |
-<%= link_to 'Add a Question', new_question_path(:quiz_id => @quiz.id) %>
+<%= link_to 'Add a Question', new_quiz_question_path(@quiz) %>
 

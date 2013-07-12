@@ -9,6 +9,7 @@ class Question < ActiveRecord::Base
   end
   
   def set_correct_choice!(choice_index)
+    binding.pry
     # get the choice via index
     self.correct_choice = self.choices[choice_index.to_i]
     self.save

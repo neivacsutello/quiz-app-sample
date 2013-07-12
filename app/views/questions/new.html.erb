@@ -1,7 +1,7 @@
 <h1>Add a question to <%= @quiz.name %>:</h1>
 
 
-<%= form_for(@question) do |f| %>
+<%= form_for(@question, :url => quiz_questions_path(@quiz)) do |f| %>
   <%= f.hidden_field :quiz_id, :value => @quiz.id %>
 
   <p>

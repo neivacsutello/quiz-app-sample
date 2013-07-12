@@ -1,8 +1,17 @@
 Quizapp::Application.routes.draw do
-  resources :quizzes
 
-  resources :questions, :only => [:new, :create, :show]
+  resources :users
 
+  
+
+  resources :quizzes do
+    resources :answers, :only => [:new, :create]
+    
+    resources :questions, 
+      :only => [:new, :create, :show],
+      :controller => 'quizzes/questions'
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
